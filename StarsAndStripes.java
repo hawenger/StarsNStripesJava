@@ -13,11 +13,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
-// Please put your name here!
+// Hannah Wenger
 
 public class StarsAndStripes {
 	public static void drawFlag(int stars, int stripes, java.awt.Graphics g, int x, int y, int width, int height) {
-		// Fill this in according to the assignment!
+		g.setColor(Color.white);
+		g.fillRect(x, y, width, height);
+		for(int i = 0; i < stripes; i++) {
+			for(int j = 0; j < stripes; j++) {
+			g.setColor(Color.red);
+			g.drawRect(x, y, width, (int)Math.floor(height / stripes));
+			y = y + (int)Math.floor(height / stripes);
+			if(j % 2 == 0 || j == 0)  {
+				g.fillRect(x, y, width, (int)Math.floor(height / stripes));
+			}
+			}
+		}
+			//
 	}
 
 	public static void drawStar(java.awt.Graphics g, int x, int y, int size) {
