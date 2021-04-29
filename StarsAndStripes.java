@@ -19,15 +19,19 @@ public class StarsAndStripes {
 	public static void drawFlag(int stars, int stripes, java.awt.Graphics g, int x, int y, int width, int height) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, width, height);
-		for(int i = 0; i < stripes; i++) {
+		//for(int i = 0; i < stripes; i++) {
+			//g.setColor(Color.red);
+			//g.fillRect(x, i, width, (int)Math.floor(height / stripes));
+			//y = y + (int)Math.ceil(height / stripes);
+			
 			for(int j = 0; j < stripes; j++) {
 			g.setColor(Color.red);
-			g.drawRect(x, y, width, (int)Math.floor(height / stripes));
-			y = y + (int)Math.floor(height / stripes);
 			if(j % 2 == 0 || j == 0)  {
 				g.fillRect(x, y, width, (int)Math.floor(height / stripes));
 			}
-			}
+			y = y + (int)Math.ceil(height / stripes);
+			
+			//}
 		}
 			//
 	}
