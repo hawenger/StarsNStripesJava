@@ -17,23 +17,33 @@ import javax.swing.border.BevelBorder;
 
 public class StarsAndStripes {
 	public static void drawFlag(int stars, int stripes, java.awt.Graphics g, int x, int y, int width, int height) {
+		//Base
 		g.setColor(Color.white);
 		g.fillRect(x, y, width, height);
-		//for(int i = 0; i < stripes; i++) {
-			//g.setColor(Color.red);
-			//g.fillRect(x, i, width, (int)Math.floor(height / stripes));
-			//y = y + (int)Math.ceil(height / stripes);
-			
-			for(int j = 0; j < stripes; j++) {
+		
+		
+		//Stripes
+		int y2k = y;
+		int stripeHeight = (int)Math.floor(height / stripes);
+			for(int j = 0; j <= (int)Math.ceil(stripes/2); j++) {
 			g.setColor(Color.red);
-			if(j % 2 == 0 || j == 0)  {
-				g.fillRect(x, y, width, (int)Math.floor(height / stripes));
-			}
-			y = y + (int)Math.ceil(height / stripes);
+			if((j == (int)Math.ceil(stripes/2)) && stripes % 2 != 0 ) {
+				g.fillRect(x, y2k, width, stripeHeight + 5);
+			} else {
+			g.fillRect(x, y2k, width, stripeHeight); // why am I off by 5?
 			
-			//}
+			y2k = y2k + ((int)Math.ceil(height / stripes) * 2);
+			}
+			
 		}
-			//
+		
+		//Starfield
+		
+			//int starfieldHeight = ((int)Math.floor(height / stripes)) * (int)Math.ceil(stripes/2);
+			//int starfieldWidth = (int)Math.floor((starfieldHeight * width) / height);
+			//g.setColor(Color.blue);
+			//g.fillRect(x, y, starfieldWidth, starfieldHeight);
+			
 	}
 
 	public static void drawStar(java.awt.Graphics g, int x, int y, int size) {
