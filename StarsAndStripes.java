@@ -24,25 +24,27 @@ public class StarsAndStripes {
 		
 		//Stripes
 		int y2k = y;
-		int stripeHeight = (int)Math.floor(height / stripes);
-			for(int j = 0; j <= (int)Math.ceil(stripes/2); j++) {
+		int stripeHeight = (int)Math.floor(((double)height / (double)stripes));
+		int redStripeCount = (int)Math.ceil(((double)stripes / 2.0));
+			for(int j = 0; j < redStripeCount; j++) {
 			g.setColor(Color.red);
-			if((j == (int)Math.ceil(stripes/2)) && stripes % 2 != 0 ) {
-				g.fillRect(x, y2k, width, stripeHeight + 5);
+			if((j == redStripeCount - 1) && stripes % 2 != 0 ) {
+				g.fillRect(x, y2k, width, stripeHeight + 5); // why am I off by 5?
 			} else {
-			g.fillRect(x, y2k, width, stripeHeight); // why am I off by 5?
+			g.fillRect(x, y2k, width, stripeHeight); 
 			
-			y2k = y2k + ((int)Math.ceil(height / stripes) * 2);
+			y2k = y2k + (stripeHeight * 2);
 			}
 			
 		}
 		
 		//Starfield
 		
-			//int starfieldHeight = ((int)Math.floor(height / stripes)) * (int)Math.ceil(stripes/2);
-			//int starfieldWidth = (int)Math.floor((starfieldHeight * width) / height);
-			//g.setColor(Color.blue);
-			//g.fillRect(x, y, starfieldWidth, starfieldHeight);
+			int starfieldHeight = stripeHeight * redStripeCount;
+			int starfieldWidth = (int)(Math.floor(((double)starfieldHeight * (double)width) / (double)height));
+
+			g.setColor(Color.blue);
+			g.fillRect(x, y, starfieldWidth, starfieldHeight);
 			
 	}
 
