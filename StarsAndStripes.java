@@ -46,10 +46,50 @@ public class StarsAndStripes {
 			g.setColor(Color.blue);
 			g.fillRect(x, y, starfieldWidth, starfieldHeight);
 			
+		
+			//Stars
+			
+			int starArea = (int)Math.floor(((double)starfieldHeight * (double)starfieldWidth) / (double)stars);
+			
+			for(int m = 0; m < stars; m++) {
+				for(int n = 0; n < stars; n++) {
+					drawStar(g, x, y, (int)Math.floor(Math.sqrt(starArea)));
+				}
+			}
+			drawStar(g, x, y, (int)Math.floor(Math.sqrt(starArea)));
+			
 	}
+	
+	
 
 	public static void drawStar(java.awt.Graphics g, int x, int y, int size) {
-		// Fill this in according to the assignment!
+		int fifth = (int)Math.floor(((double)size / (double)5));
+		int twoFifth = (int)Math.floor(((double)size / (double)5) * 2.0);
+		int threeFifth = (int)Math.floor(((double)size / (double)5) * 3.0);
+		int fourFifth = (int)Math.floor(((double)size / (double)5) * 4.0);
+		int whole = (int)Math.floor(((double)size / (double)5) * 5.0);
+		int x1 = x + fifth;
+		int x2 = x + threeFifth;
+		int x3 = x + fourFifth;
+		int x4 = x;
+		int x5 = x + whole;
+		int x6 = x + fifth;
+
+		int y1 = y + whole;
+		int y2 = y;
+		int y3 = y + whole;
+		int y4 = y + twoFifth;
+		int y5 = y + twoFifth;
+		int y6 = y + whole;
+		
+// One Fifth, Two Fifth, Red Fifth, Blue Fifth!
+		
+		g.setColor(Color.white);
+		g.drawLine(x1, y1, x2, y2);
+		g.drawLine(x2, y2, x3, y3);
+		g.drawLine(x3, y3, x4, y4);
+		g.drawLine(x4, y4, x5, y5);
+		g.drawLine(x5, y5, x6, y6);
 	}
 
 	// Only alter the "drawFlag" part of the paintComponent
