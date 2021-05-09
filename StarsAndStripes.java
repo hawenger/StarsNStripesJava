@@ -49,7 +49,7 @@ public class StarsAndStripes {
 		
 			//Stars
 			
-			int starRows = 0;
+			int starRows = 0; // Calculate columns and rows
 			int starColumns = 0;
 			for(int i = 2; i < stars; i++) {
 				if(stars % i == 0) {
@@ -62,14 +62,11 @@ public class StarsAndStripes {
 				}
 			}
 
-			int starSize = starfieldHeight / starRows;
-			//int starWidth = (int)Math.floor((double)starfieldWidth / (double)starColumns);
-			//int starHeight = (int)Math.floor((double)starfieldHeight / (double)starRows);
-			//int starArea = (int)Math.floor(((double)starfieldHeight * (double)starfieldWidth) / ((double)stars * 2.0));
-			//int starSize = (int)Math.floor(Math.sqrt(starArea));
+			int starSize = starfieldHeight / starRows; //Adjusted star size calculation
+			
 			for(int i = 0; i < starColumns; i ++) {
 				for(int j = 0; j < starRows; j++) {
-					//drawStar(g, (i * starSize), (j * starSize), starSize);
+					
 					drawStar(g, x + (i * starSize), y + (j * starSize), starSize);
 				}
 				
