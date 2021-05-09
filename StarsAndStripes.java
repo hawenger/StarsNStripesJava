@@ -51,27 +51,26 @@ public class StarsAndStripes {
 			
 			int starRows = 0;
 			int starColumns = 0;
-			if(stars == 15) {
-				starRows = 3;
-				starColumns = 5;
-			} else if(stars == 20) {
-				starRows = 4;
-				starColumns = 5;
-			} else if(stars == 24) {
-				starRows = 4;
-				starColumns = 6;
-			} else {
-				starRows = 6;
-				starColumns = 8;
+			for(int i = 2; i < stars; i++) {
+				if(stars % i == 0) {
+					starColumns = stars / i;
+					starRows = i;
+					if(starColumns > starRows && starColumns < starRows * 2) {
+						break;
+					}
+					
+				}
 			}
-			
-			int starWidth = (int)Math.floor((double)starfieldWidth / (double)starColumns);
-			int starHeight = (int)Math.floor((double)starfieldHeight / (double)starRows);
-			int starArea = (int)Math.floor(((double)starfieldHeight * (double)starfieldWidth) / ((double)stars * 2.0));
-			int starSize = (int)Math.floor(Math.sqrt(starArea));
+
+			int starSize = starfieldHeight / starRows;
+			//int starWidth = (int)Math.floor((double)starfieldWidth / (double)starColumns);
+			//int starHeight = (int)Math.floor((double)starfieldHeight / (double)starRows);
+			//int starArea = (int)Math.floor(((double)starfieldHeight * (double)starfieldWidth) / ((double)stars * 2.0));
+			//int starSize = (int)Math.floor(Math.sqrt(starArea));
 			for(int i = 0; i < starColumns; i ++) {
 				for(int j = 0; j < starRows; j++) {
-					drawStar(g, x + (i * starWidth), y + (j * starHeight), starSize);
+					//drawStar(g, (i * starSize), (j * starSize), starSize);
+					drawStar(g, x + (i * starSize), y + (j * starSize), starSize);
 				}
 				
 			}
