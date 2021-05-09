@@ -61,17 +61,16 @@ public class StarsAndStripes {
 					
 				}
 			}
-
+		
 			int starSize = starfieldHeight / starRows; //Adjusted star size calculation
 			
 			for(int i = 0; i < starColumns; i ++) {
 				for(int j = 0; j < starRows; j++) {
-					
 					drawStar(g, x + (i * starSize), y + (j * starSize), starSize);
 				}
 				
 			}
-			
+
 	}
 	
 	
